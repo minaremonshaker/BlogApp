@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import paginate from "mongoose-aggregate-paginate-v2";
 import bcrypt from "bcrypt";
 import crypto from "crypto-js";
-import Role from "./Role.js";
 
 
 export const allowedUserSearchFeilds = ["first_name", "last_name", "email"];
@@ -41,19 +40,7 @@ UserSchema.pre("save", async function () {
 });
 
 
-/**
- * Pre-save middleware that assigns the 'user' role to new users that do not
- * have any roles assigned.
- *
- * @return {Promise<void>} - Resolves when the middleware has completed, or
- * rejects with an error if the role lookup fails.
- */
-UserSchema.pre('save', async function () {
-  if(this.isNew && (!this.roles || this.roles.length === 0)) {
-     const userRole = await Role.findOne({ name: 'user' });
-     this.roles = [userRole._id];
-  }
-});
+
 
 /**
  * Pre-save middleware that hashes the password before saving the user
