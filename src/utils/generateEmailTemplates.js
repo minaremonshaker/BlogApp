@@ -17,7 +17,7 @@ const generateEmailTemplates = async (template, data) => {
     let compiledTemplate = handlebars.compile(source);
     return compiledTemplate(data);
   } catch (err) {
-    throw err
+     console.log(`there are error in making email template : ${err.message}`)
   }
 };
 

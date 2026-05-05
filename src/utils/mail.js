@@ -30,6 +30,5 @@ export const MailServer = async () => {
     return transporter;
   } catch (err) {
     console.error("Mail transporter configuration failed:", err);
-    throw err;
   }
 };

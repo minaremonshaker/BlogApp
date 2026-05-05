@@ -5,19 +5,11 @@ import welcomeEmail from "../emails/WelcomeEmail.js";
 const MailEmmiters = new EventEmitter();
 
 MailEmmiters.on("register", async (user, subject) => {
-  try {
-    await welcomeEmail(user, subject);
-  } catch (err) {
-    throw err;
-  }
+  await welcomeEmail(user, subject);
 });
 
 MailEmmiters.on("activate", async (user, subject, activationLink) => {
-  try {
-    await activateAccountEmail(user, subject, activationLink);
-  } catch (err) {
-    throw err;
-  }
+  await activateAccountEmail(user, subject, activationLink);
 });
 
 export default MailEmmiters;

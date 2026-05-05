@@ -90,9 +90,6 @@ const UserSchema = new Schema(
         default: "",
       },
     },
-    roles: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "Role"},
-    ],
     password: {
       type: String,
       required: [true, "{PATH} required"],

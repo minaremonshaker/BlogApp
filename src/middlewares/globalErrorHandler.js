@@ -19,6 +19,7 @@ const globalErrorHandler = (err, req, res, next) => {
     });
   }
 
+
   if(err.name === 'UnAuthorized') {
     return res.status(401).json({
       errors: {

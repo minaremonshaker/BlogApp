@@ -36,7 +36,7 @@ const usersTemp = (user) => {
     updated_at: user.updatedAt,
     links: {
       self: `${process.env.APP_URL}:${process.env.PORT}/users/${user._id}`,
-    },
+    } 
   };
 };
 
@@ -99,8 +99,7 @@ export const singleUser = (user, message) => {
   return {
     meta: {
       message: message,
-      count: 1,
     },
-    data: usersTemp(user),
+    data: Object.entries(user).length === 0 ? undefined : usersTemp(user),
   };
 };
