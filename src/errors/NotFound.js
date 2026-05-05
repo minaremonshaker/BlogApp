@@ -1,5 +1,3 @@
-
-
 const NotFound = (message) => {
     const error = new Error();
     error.name = 'NotFound';
